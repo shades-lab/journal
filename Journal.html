@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Weight of Words</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            padding: 40px;
+            text-align: center;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+        #text {
+            font-size: 1.5em;
+            max-width: 80%;
+            white-space: pre-line;
+            line-height: 1.8;
+            text-align: center;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: white;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>The Weight of Words</h1>
+    <div id="text"></div>
+    <span class="cursor"></span>
+
+    <script>
+        const text = `
+Last year, my journal became a graveyard of my emotions—
+grief, anger, loneliness.
+
+Every page held a version of myself I wanted to escape.
+Writing it down didn’t feel like release;
+it felt like chains tightening around me.
+
+So in the new year, I decided I wouldn’t journal anymore.
+Not because I had nothing to say,
+but because I was afraid of what my words would reveal.
+I feared that if I wrote it down,
+the weight would follow me.
+
+For months, I refused to pick up a pen.
+I refused to document the days,
+to let out my feelings.
+
+Until one day in March—without planning,
+without overthinking—I found myself
+buying a new journal.
+
+I don’t know why.
+Maybe because I felt something inside me.
+Something different.
+
+March 9th, 2025
+The only sentence I wrote:
+"I bought this because today felt
+like the beginning of a new story."
+
+The next few entries were scattered—
+hesitant steps into a world I wasn’t sure I wanted to explore.
+
+March 27th, 2025
+The first words on the page:
+"Where do I even start?"
+
+Somewhere between then and now, I met a girl.
+A girl who exists like the night sky,
+pulling me into her orbit.
+
+A girl who moves with the quiet grace
+of constellations shifting.
+She is poetry in motion.
+
+Suddenly, I crave her.
+I miss her when she isn’t near.
+I love her in a way that terrifies me—
+because it feels like she has rewritten
+the language of my heart.
+
+She is the kind of presence that makes the world
+hum in a new frequency.
+I want to spend my time exploring her,
+unfolding her layer by layer.
+
+Her voice lingers in my thoughts,
+a melody I never want to stop hearing.
+Her laughter stays in my chest,
+a spark that ignites warmth in the coldest parts of me.
+
+And her eyes... oh my god, her eyes.
+They hold galaxies I want to get lost in.
+
+She has changed me in ways I never saw coming.
+Before her, I walked through life feeling numb.
+Now, I feel everything.
+
+The air tastes sweeter.
+The stars seem brighter.
+The world is softer, more poetic,
+because she is in it.
+
+I don’t know where this will go,
+but for the first time in a long time,
+I’m not afraid to write it down.`;
+
+        let i = 0;
+        const textDiv = document.getElementById("text");
+
+        function typeWriter() {
+            if (i < text.length) {
+                textDiv.innerHTML += text.charAt(i);
+                i++;
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); // Smooth scrolling effect
+                setTimeout(typeWriter, 75); // Slightly faster typing
+            }
+        }
+        
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
+
+
